@@ -42,6 +42,10 @@ class MainActivity : AppCompatActivity(), BaseFragment.FragmentChangeInterface {
         fragmentManager.popBackStack()
     }
 
+    override fun closeApp() {
+        finish()
+    }
+
     override fun onBackPressed() {
         val backStackEntryCount = fragmentManager.backStackEntryCount
         if(backStackEntryCount == 1 ){

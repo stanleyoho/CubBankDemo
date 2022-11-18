@@ -1,7 +1,9 @@
 package com.cub.hw.app.view.areaListFragment
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -42,6 +44,14 @@ class AreaListFragment : BaseFragment(), AreaListContract.View {
         return view
     }
 
+    override fun showErrorMsg(){
+        val dialog = AlertDialog.Builder(context)
+            .setTitle("錯誤")
+            .setMessage("出現錯誤,請重新啟動App")
+            .setPositiveButton("確認"
+            ) { p0, p1 -> fragmentChangeListener.closeApp() }.show()
+    }
+
     override fun updateRecycler(areaData: AreasDetailInformation) {
 
         val adapter = recycler.adapter as HomeFragmentAdapter?
@@ -58,7 +68,6 @@ class AreaListFragment : BaseFragment(), AreaListContract.View {
         } else {
             adapter.update(areaData)
         }
-
     }
 
     class HomeFragmentAdapter(

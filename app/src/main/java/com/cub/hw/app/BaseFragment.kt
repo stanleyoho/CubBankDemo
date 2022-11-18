@@ -22,5 +22,6 @@ open class BaseFragment : Fragment() {
         fun addFragment(fragment:Fragment,pageName:PageEnum)
         fun removeFragment(fragment:Fragment)
         fun back()
+        fun closeApp()
     }
 }
